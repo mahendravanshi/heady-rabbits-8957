@@ -2,6 +2,9 @@ package com.masaischool.models;
 
 
 
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.masaischool.enums.Level;
 
 import jakarta.persistence.Entity;
@@ -10,6 +13,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -57,6 +61,9 @@ public class Seed {
 	@Min(value=1L,message="Enter correct seedsPerPacket min is 1")
 	private int seedsPerPacket;
 	
+	@JsonIgnore
+	@ManyToMany(mappedBy="seeds")
+	private Set<Orders> orders;
 	
 	
 	
