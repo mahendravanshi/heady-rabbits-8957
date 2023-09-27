@@ -61,6 +61,8 @@ public class Seed {
 	@Min(value=1L,message="Enter correct seedsPerPacket min is 1")
 	private int seedsPerPacket;
 	
+	private boolean isPresent;
+	
 	@JsonIgnore
 	@ManyToMany(mappedBy="seeds")
 	private Set<Orders> orders;

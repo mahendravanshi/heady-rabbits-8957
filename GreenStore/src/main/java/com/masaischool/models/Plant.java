@@ -59,6 +59,8 @@ public class Plant {
 	@Min(value=1L)
 	private Integer stock;
 	
+	private boolean isPresent;
+	
 	@Min(value=1L,message="Enter correct price")
 	private Double plantCost;
 	

@@ -1,18 +1,21 @@
 package com.masaischool.models;
 
+import java.util.Set;
+
 import org.springframework.boot.autoconfigure.amqp.RabbitConnectionDetails.Address;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Embeddable;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -46,8 +49,17 @@ public class Customer {
 	private String username;
 	
 	
+	@JsonIgnore
+	@ManyToMany
+	@JoinTable(name="customer_role",
+	joinColumns = @JoinColumn(referencedColumnName = "customerId",name="customer_id"),
+	inverseJoinColumns = @JoinColumn(referencedColumnName = "roleId",name="role_id")
+	)
+	private Set<RolesAndAuthority> rolesAndAuthorities;
+	
+	
 	@JsonProperty(access=Access.WRITE_ONLY)
-	private String passwordString;
+	private String password;
 	
 	@Valid
 	@Embedded

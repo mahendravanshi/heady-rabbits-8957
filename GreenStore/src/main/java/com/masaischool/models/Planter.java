@@ -44,6 +44,8 @@ public class Planter {
 	@Min(value=0,message="planterCost cannot be less than zero")
 	private Double planterCost;
 	
+	private boolean isPresent;
+	
 	
 	private Plant plant;
 	
