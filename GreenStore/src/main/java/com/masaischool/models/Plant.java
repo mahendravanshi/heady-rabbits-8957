@@ -44,6 +44,9 @@ public class Plant {
 	@NotBlank(message="plantType required")
 	private String plantType;
 	
+	@NotBlank(message="Common name required")
+	private String commonName;
+	
 	@NotBlank(message="username required")
 	@Enumerated(EnumType.STRING)
 	private Level difficultyLevel;
