@@ -21,9 +21,5 @@ public class RolesAndAuthority {
 	
 	private String roleName;
 	
-	@ManyToMany(mappedBy="rolesAndAuthorities")
-	private Set<Customer> customers;
-	
-	
 	
 }
