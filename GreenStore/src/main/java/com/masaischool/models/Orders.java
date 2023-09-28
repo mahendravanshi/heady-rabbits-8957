@@ -64,7 +64,7 @@ public class Orders {
     )
     private Set<Plant> plants;
 	
-	
+	@JsonIgnore
 	@ManyToMany
     @JoinTable(
         name = "order_seed",
