@@ -55,6 +55,9 @@ public class Seed {
 	@Min(value=1L)
 	private Integer stock;
 	
+	@Min(value=1L)
+	private int quantity;
+	
 	@Min(value=1L,message="Enter correct price")
 	private Double seedCost;
 	

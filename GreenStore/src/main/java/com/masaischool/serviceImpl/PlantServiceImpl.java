@@ -87,6 +87,8 @@ public class PlantServiceImpl implements PlantService {
 			   return plant;
 			   
 		}
+		
+		
 		@Override
 		public List<Plant> viewAllPlants(String fieldOne, String dirOne, int pageNumber, int pageSize) {
 		    Sort sort = dirOne.equalsIgnoreCase("asc") ? Sort.by(Sort.Direction.ASC, fieldOne) : Sort.by(Sort.Direction.DESC, fieldOne);
