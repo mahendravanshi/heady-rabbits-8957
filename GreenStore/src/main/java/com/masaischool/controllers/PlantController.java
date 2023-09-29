@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,15 +15,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.masaischool.models.Plant;
 import com.masaischool.service.PlantService;
-
-import lombok.extern.slf4j.Slf4j; // Import Lombok's logging annotation
+import lombok.extern.slf4j.Slf4j; 
 
 @RestController
 @RequestMapping("/admin/plant")
-@Slf4j // Add Lombok's logging annotation
+@Slf4j 
+@CrossOrigin(origins="*")
 public class PlantController {
 
 	@Autowired
@@ -48,6 +48,8 @@ public class PlantController {
 		Plant deletedPlant = plantService.deletePlant(plantId);
 		return new ResponseEntity<>(deletedPlant, HttpStatus.OK);
 	}
+	
+	
 
 	@GetMapping("/view/{plantId}")
 	public ResponseEntity<Plant> viewPlant(@PathVariable Integer plantId) {
@@ -55,14 +57,17 @@ public class PlantController {
 		Plant plant = plantService.viewPlant(plantId);
 		return new ResponseEntity<>(plant, HttpStatus.OK);
 	}
-
+	
+	
+   
 	@GetMapping("/viewByName/{commonName}")
 	public ResponseEntity<Plant> viewPlantByCommonName(@PathVariable String commonName) {
 		log.info("Viewing plant by common name: {}", commonName);
 		Plant plant = plantService.viewPlant(commonName);
 		return new ResponseEntity<>(plant, HttpStatus.OK);
 	}
-
+  
+	
 	@GetMapping("/viewAll")
 	public ResponseEntity<List<Plant>> viewAllPlants(@RequestParam String fieldOne, @RequestParam String dirOne,
 			@RequestParam int pageNumber, @RequestParam int pageSize) {
@@ -70,7 +75,8 @@ public class PlantController {
 		List<Plant> plants = plantService.viewAllPlants(fieldOne, dirOne, pageNumber, pageSize);
 		return new ResponseEntity<>(plants, HttpStatus.OK);
 	}
-
+	
+    
 	@GetMapping("/viewByType")
 	public ResponseEntity<List<Plant>> viewAllPlantsByType(@RequestParam String typeOfPlant,
 			@RequestParam String fieldOne, @RequestParam String dirOne, @RequestParam int pageNumber,
@@ -79,4 +85,7 @@ public class PlantController {
 		List<Plant> plants = plantService.viewAllPlantsByType(typeOfPlant, fieldOne, dirOne, pageNumber, pageSize);
 		return new ResponseEntity<>(plants, HttpStatus.OK);
 	}
+	
+	
+	
 }

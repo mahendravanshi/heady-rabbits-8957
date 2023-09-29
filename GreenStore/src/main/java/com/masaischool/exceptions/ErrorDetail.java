@@ -11,7 +11,9 @@ public class ErrorDetail {
 
 	private String message;
 	
+	@Builder.Default
 	private LocalDateTime localDateTime = LocalDateTime.now();
 	
 	private String uri;
+	
 }

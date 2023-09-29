@@ -54,7 +54,8 @@ public class Planter {
 	@Getter @Setter
 	private boolean isPresent;
 	
-	
+	@Min(value=1L)
+	private int quantity;
 	private Plant plant;
 	
 	private Seed seed;

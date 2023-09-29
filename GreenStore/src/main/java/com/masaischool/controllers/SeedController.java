@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,10 +22,10 @@ import com.masaischool.service.SeedService;
 import lombok.extern.slf4j.Slf4j;
 
 
-
-@Slf4j
 @RestController
 @RequestMapping("/admin/seed")
+@Slf4j 
+@CrossOrigin(origins="*")
 public class SeedController {
 
     @Autowired
@@ -73,7 +74,7 @@ public class SeedController {
         List<Seed> seeds = seedService.viewAllSeeds(fieldOne, dirOne, pageNumber, pageSize);
         return new ResponseEntity<>(seeds, HttpStatus.OK);
     }
-
+    
     @GetMapping("/viewByType")
     public ResponseEntity<List<Seed>> viewAllSeedsByType(@RequestParam String typeOfSeed,
                                                          @RequestParam String fieldOne, @RequestParam String dirOne,
