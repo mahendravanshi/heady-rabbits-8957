@@ -2,6 +2,8 @@ package com.masaischool.models;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -44,6 +46,7 @@ public class Address {
 	@Pattern(regexp="^[1-9]+[0-9]{5}$",message="Please provide proper six digit pinCode")
 	private String pinCode;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="customer_id")
 	private Customer customer;

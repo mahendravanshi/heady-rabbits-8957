@@ -8,20 +8,20 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.masaischool.models.Address;
 import com.masaischool.models.Customer;
 import com.masaischool.service.CustomerService;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import jakarta.validation.Valid;
 
 @RestController
 @CrossOrigin(origins="*")
 public class CustomerController {
 	
-	@Autowired
+//	@Autowired
 	private CustomerService customerService;
 //	private PasswordEncoder passwordEncoder;
 	
@@ -38,6 +38,8 @@ public class CustomerController {
 	public CustomerController(CustomerService customerService) {
 		this.customerService = customerService;
 	}
+	
+	
 
 	
     

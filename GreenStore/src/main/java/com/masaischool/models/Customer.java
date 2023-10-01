@@ -62,7 +62,7 @@ public class Customer {
 	
 	private String password;
 
-	@JsonIgnore
+//	@JsonIgnore
 	@OneToMany(mappedBy = "customer",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	@JsonProperty(value="addresses")
     private List<Address> addresses;
