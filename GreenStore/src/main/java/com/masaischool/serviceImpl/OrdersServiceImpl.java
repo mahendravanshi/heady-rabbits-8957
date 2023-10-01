@@ -7,12 +7,15 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
+
 import com.masaischool.exceptions.OrderNotFoundException;
 import com.masaischool.exceptions.PriceException;
 import com.masaischool.models.Orders;
 import com.masaischool.repository.OrdersRepository;
 import com.masaischool.service.OrdersService;
 
+@Service
 public class OrdersServiceImpl implements OrdersService {
 
 	
@@ -100,9 +103,9 @@ public class OrdersServiceImpl implements OrdersService {
 		
 		Sort sort = dirOne.equalsIgnoreCase("asc")?Sort.by(Sort.Direction.ASC,fieldOne):Sort.by(Sort.Direction.DESC,fieldOne);
 		
-		Pageable pageable2 = PageRequest.of(pageNumber, pageSize,sort);
+		Pageable pageable = PageRequest.of(pageNumber, pageSize,sort);
 		
-		Page<Orders> page = ordersRepository.findAll(pageable2);
+		Page<Orders> page = ordersRepository.findAll(pageable);
 		
 		if(page.hasContent()) {
 			return page.getContent();

@@ -113,7 +113,7 @@ public class PlanterServiceImpl implements PlanterService {
 		Sort sort = dirOne.equalsIgnoreCase("asc") ? Sort.by(Sort.Direction.ASC, fieldOne) : Sort.by(Sort.Direction.DESC, fieldOne);
 	    Pageable pageable = PageRequest.of(pageNumber - 1, pageSize, sort);
 
-	    Page<Planter> page = planterRepository.findByTypeOfPlanterandIsPresentTrue(typeOfPlanter, pageable);
+	    Page<Planter> page = planterRepository.findByPlanterShapeAndIsPresentTrue(typeOfPlanter, pageable);
 
 	    
 	    if(page.hasContent()) {

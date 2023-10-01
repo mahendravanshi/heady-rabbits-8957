@@ -113,7 +113,7 @@ public class PlantServiceImpl implements PlantService {
 			Sort sort = dirOne.equalsIgnoreCase("asc") ? Sort.by(Sort.Direction.ASC, fieldOne) : Sort.by(Sort.Direction.DESC, fieldOne);
 		    Pageable pageable = PageRequest.of(pageNumber - 1, pageSize, sort);
 
-		    Page<Plant> page = plantRepository.findByTypeOfPlantandIsPresentTrue(typeOfPlant, pageable);
+		    Page<Plant> page = plantRepository.findByTypeOfPlantAndIsPresentTrue(typeOfPlant, pageable);
 
 		    
 		    if(page.hasContent()) {

@@ -16,7 +16,7 @@ public interface PlanterRepository extends JpaRepository<Planter, Integer> {
 	   public Planter viewPlanter(String commonName);
 	  
 	  
-	  public Page<Planter> findByTypeOfPlanterandIsPresentTrue(String typeOfPlanter,Pageable pageable);
+	  public Page<Planter> findByPlanterShapeAndIsPresentTrue(String typeOfPlanter,Pageable pageable);
 
 	  public Page<Planter> findByIsPresentTrue(Pageable pageable);
 

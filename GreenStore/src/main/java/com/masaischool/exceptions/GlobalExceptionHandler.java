@@ -65,9 +65,10 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<ErrorDetail> exceptionFound(Exception nhf, WebRequest wr) {
 		log.error("An Exception occurred: {}", nhf.getMessage());
-
+       
+		
 		ErrorDetail ed = ErrorDetail.builder().message(nhf.getMessage()).uri(wr.getDescription(false)).build();
-
+//        nhf.printStackTrace();
 		return new ResponseEntity<>(ed, HttpStatus.BAD_REQUEST);
 	}
 
@@ -80,13 +81,21 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<>(ed, HttpStatus.BAD_REQUEST);
 	}
 
+	
+	
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ResponseEntity<List<String>> illegalExceptionFound(MethodArgumentNotValidException nhf, WebRequest wr) {
 		log.error("An Exception found in MethodArgumentNotValidException");
-
+         
 		List<ObjectError> allErrors = nhf.getAllErrors();
 		List<String> errorsToStringList = MethodArgumentNotValidException.errorsToStringList(allErrors);
 
 		return new ResponseEntity<>(errorsToStringList, HttpStatus.BAD_REQUEST);
 	}
+	
+	
+	
+	
+	
+	
 }

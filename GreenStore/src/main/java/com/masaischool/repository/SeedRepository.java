@@ -10,7 +10,7 @@ import com.masaischool.models.Seed;
 public interface SeedRepository extends JpaRepository<Seed, Integer> {
 
 	
-	@Query("select  from Seed s where s.commonName = :commonName")
+	@Query("select s from Seed s where s.commonName = :commonName")
 	public Seed viewSeed(String commonName);
 
 	public Page<Seed> findByTypeOfSeedAndIsPresentTrue(String typeOfSeed, Pageable pageable);

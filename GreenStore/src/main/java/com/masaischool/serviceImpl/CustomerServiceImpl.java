@@ -1,8 +1,8 @@
 package com.masaischool.serviceImpl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.masaischool.models.Customer;
 import com.masaischool.repository.CustomerRepository;
 import com.masaischool.service.CustomerService;
 
@@ -11,8 +11,20 @@ import com.masaischool.service.CustomerService;
 public class CustomerServiceImpl implements CustomerService {
 
 	
-	@Autowired
 	private CustomerRepository  customerRepository;
+	
+	
+	public CustomerServiceImpl(CustomerRepository customerRepository) {
+		this.customerRepository = customerRepository;
+	}
+
+
+
+	@Override
+	public Customer registerCustomer(Customer customer) {
+		
+		return customerRepository.save(customer);
+	}
 	
 	
 	

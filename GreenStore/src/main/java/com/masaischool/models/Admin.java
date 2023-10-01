@@ -22,7 +22,7 @@ import lombok.Setter;
 public class Admin {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer adminId;
 	
 	@Size(min=5,max=50,message="username size should be greater than 4 and less than 51")

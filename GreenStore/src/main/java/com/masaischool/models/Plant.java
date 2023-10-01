@@ -27,10 +27,8 @@ import lombok.Setter;
 public class Plant {
 	
 	
-	
-	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer plantId;
 	
 	private Double plantHeight;

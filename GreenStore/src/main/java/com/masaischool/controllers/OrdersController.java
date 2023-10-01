@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/orders")
+@CrossOrigin(origins="*")
 @Slf4j
 public class OrdersController {
 

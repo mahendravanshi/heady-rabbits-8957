@@ -12,7 +12,7 @@ public interface PlantRepository extends JpaRepository<Plant, Integer> {
 	@Query("select p from Plant p where p.commonName = :commonName")
 	public Plant viewPlant(String commonName);
 
-	public Page<Plant> findByTypeOfPlantandIsPresentTrue(String typeOfPlant, Pageable pageable);
+	public Page<Plant> findByTypeOfPlantAndIsPresentTrue(String typeOfPlant, Pageable pageable);
 
 	public Page<Plant> findByIsPresentTrue(Pageable pageable);
 
