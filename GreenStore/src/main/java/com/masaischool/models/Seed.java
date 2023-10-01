@@ -29,7 +29,7 @@ import lombok.Setter;
 public class Seed {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer seedId;
 	
 	@NotBlank(message="commonName required")

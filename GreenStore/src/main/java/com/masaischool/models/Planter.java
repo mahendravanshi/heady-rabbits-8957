@@ -24,7 +24,7 @@ import lombok.Setter;
 public class Planter {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer planterId;
 	
 	
@@ -56,9 +56,11 @@ public class Planter {
 	
 	@Min(value=1L)
 	private int quantity;
-	private Plant plant;
 	
-	private Seed seed;
+	
+	
+	
+	
 	
 	@JsonIgnore
 	@ManyToMany(mappedBy="planters")
